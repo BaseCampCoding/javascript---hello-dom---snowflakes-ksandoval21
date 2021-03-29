@@ -3,6 +3,9 @@ const MAX_SIZE = 20;
 const MIN_DURATION = 2000;
 const MAX_DURATION = 5000;
 
+const colorInput = document.querySelector("input[name='color']");
+let color = "#000000";
+
 const snowflakesContainer = document.getElementById("snowflakes-container");
 
 setInterval(() => createSnowflake(), 50);
@@ -26,6 +29,7 @@ function createSnowflake() {
   snowFlake.style.left = randint(0, 100) + "%";
   snowFlake.style.opacity = Math.random();
   snowFlake.style.fontSize = randint(MIN_SIZE, MAX_SIZE) + "px";
+  snowFlake.style.color = color;
 
   snowflakesContainer.appendChild(snowFlake);
 
@@ -33,6 +37,11 @@ function createSnowflake() {
     .animate(
       { transform: `translate(0vw, 100vh)` },
       { duration: randint(MIN_DURATION, MAX_DURATION) }
-    )
+  )
     .finished.then(() => snowFlake.remove());
+    colorInput.addEventListener("change", () => {
+    color = colorInput.value;
+    createSnowflake()
+  })
 }
+
