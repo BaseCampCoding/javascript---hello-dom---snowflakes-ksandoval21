@@ -20,13 +20,15 @@ function randint(lo, hi) {
 }
 
 function randomIcon() {
-  if (snowVsRainrInput.value < 0.8){
+  if (snowVsRainrInput.value == 0.5){
+    if (Math.random() < 0.5) {
+      return "fa-tint";
+    } else {
+      return "fa-snowflake";
+    }
+  }if (snowVsRainrInput.value < 0.7){
     return "fa-snowflake";
   }else if (snowVsRainrInput.value >0.2 ){
-    return "fa-tint";
-  }else if (Math.random() < 0.5) {
-    return "fa-snowflake";
-  } else {
     return "fa-tint";
   }
 }
