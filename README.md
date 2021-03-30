@@ -13,5 +13,5 @@ There are for inputs at the top of the page for this assignment, but right now t
 
 - [ ] Snow VS Rain
 - [ ] Quantity
-- [ ] Click Color
+- [DONE] Click Color
 - [ ] Wind
