@@ -1,7 +1,7 @@
 const MIN_SIZE = 10;
 const MAX_SIZE = 20;
 const MIN_DURATION = 2000;
-const MAX_DURATION = 4000;
+const MAX_DURATION = 3000;
 const snowflakesContainer = document.getElementById("snowflakes-container");
 
 
@@ -41,6 +41,10 @@ clearInterval(time);
 time=setInterval(() => createSnowflake(), quantityAmount);
 });
 
+// wind 
+const windInput = document.getElementById("wind");
+
+
 
 function randint(lo, hi) {
   return Math.random() * (hi - lo) + lo;
@@ -64,6 +68,28 @@ function createSnowflake() {
     color = colorInput.value;
   })
 
+  windInput.addEventListener("change", () => {
+    switch(windInput.value) {
+    case "-40":
+      snowFlake.style.transform= "translateX(" + (-500) + "px) ";
+      break;
+    case "-20":
+      snowFlake.style.transform= "translateX(" + (-300) + "px) ";
+      break;
+    case "-10":
+      snowFlake.style.transform= "translateX(" + (-100) + "px) ";
+      break;
+    case "10":
+      snowFlake.style.transform= "translateX(" + (100) + "px) ";
+      break;
+    case "20":
+      snowFlake.style.transform= "translateX(" + (300) + "px) ";
+      break;
+    case "40":
+      snowFlake.style.transform= "translateX(" + (500) + "px) ";
+      break;
+    }
+    })
   snowflakesContainer.appendChild(snowFlake);
 
   snowFlake
@@ -76,5 +102,4 @@ function createSnowflake() {
     
   
 }
-
 
