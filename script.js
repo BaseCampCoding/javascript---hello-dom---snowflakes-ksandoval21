@@ -17,24 +17,8 @@ const snowVsRainrInput = document.querySelector("input[name='snow-vs-rain']")
 // setInterval(() => createSnowflake(), 100)
 
 
-let time= setInterval(() => createSnowflake(), 1);
-quantityInput.addEventListener("change", ()=>{
-  if (quantityInput.value = 0){
-    quantityInput.value = 0
-    clearInterval(time);
-    time = setInterval(() => createSnowflake(), 150);
-  }else if (quantityInput.value = 1){
-    clearInterval(time);
-    time = setInterval(() => createSnowflake(), 100);
-  }else if (quantityInput.value = 2){
-    clearInterval(time);
-    time = setInterval(() => createSnowflake(), 50);
-  }else if (quantityInput.value = 3){
-    clearInterval(time);
-    time = setInterval(() => createSnowflake(), 25);
-  }else{
-    time= setInterval(() => createSnowflake(), 1);
-  }
+quantityInput.addEventListener("input", ()=>{
+  setInterval(() => createSnowflake(), (quantityInput.value * 1000))
 })
 
 
