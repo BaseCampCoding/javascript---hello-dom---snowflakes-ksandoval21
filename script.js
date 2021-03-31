@@ -1,26 +1,45 @@
 const MIN_SIZE = 10;
 const MAX_SIZE = 20;
 const MIN_DURATION = 2000;
-const MAX_DURATION = 5000;
+const MAX_DURATION = 4000;
+const snowflakesContainer = document.getElementById("snowflakes-container");
+
+
 // color
 const colorInput = document.querySelector("input[name='color']");
 let color = "#ffffff";
 
-const snowflakesContainer = document.getElementById("snowflakes-container");
-
-// quantity
-const quantityInput = document.querySelector("input[name='quantity']")
 
 // rain or snow
 const snowVsRainrInput = document.querySelector("input[name='snow-vs-rain']")
-// wind 
-// setInterval(() => createSnowflake(), 100)
 
+
+// quantity
+let quantityAmount =400;
+const quantityInput = document.getElementById("quantity");
+let time = setInterval(() => createSnowflake(), quantityAmount);
 
 quantityInput.addEventListener("input", ()=>{
-  setInterval(() => createSnowflake(), (quantityInput.value * 1000))
-})
-
+  switch(quantityInput.value) {
+  case "0":
+    quantityAmount= 600;
+    break;
+  case "1":
+    quantityAmount=200;
+    break;
+  case "2":
+    quantityAmount=50;
+    break;
+  case "3":
+    quantityAmount=25;
+    break;
+  case "4":
+    quantityAmount=1;
+    break;
+}
+clearInterval(time);
+time=setInterval(() => createSnowflake(), quantityAmount);
+});
 
 
 function randint(lo, hi) {
